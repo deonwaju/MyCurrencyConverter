@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         timberLogger()
 
         progressDialog = ProgressDialog(this)
+        mainActivityViewModel.viewModelInit(this)
+
         mainActivityViewModel.liveCurrentRate.observe(this) { rates ->
             if (rates != null) {
 

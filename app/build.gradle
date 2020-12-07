@@ -123,7 +123,7 @@ dependencies {
 //    Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-//    Stethoscope
+//    Stethoscope interceptor
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
     testImplementation 'junit:junit:4.+'
