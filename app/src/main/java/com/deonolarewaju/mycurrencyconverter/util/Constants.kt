@@ -1,8 +1,11 @@
 package com.deonolarewaju.mycurrencyconverter.util
 
+import android.content.Context
+import android.widget.Toast
+
 object Constants {
 
-    object DataBase{
+    object DataBase {
         const val DATABASE_NAME = "currency_rates_db"
         const val VERSION_N0 = 1
     }
@@ -22,6 +25,12 @@ object Constants {
 
     object Keys {
         const val API_KEY = "de85f98c6c9b44bbd74f84350ddc468f"
+    }
+
+
+    fun Context.toast(message: String) {
+        val centerToast = Toast.makeText(this, message, Toast.LENGTH_LONG)
+        centerToast.show()
     }
 
 

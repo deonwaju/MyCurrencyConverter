@@ -23,6 +23,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion "0.1.0-dev04"
+    }
+
     buildFeatures{
         dataBinding = true
 

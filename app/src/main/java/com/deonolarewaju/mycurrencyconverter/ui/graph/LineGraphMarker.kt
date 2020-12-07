@@ -6,10 +6,11 @@ import com.github.mikephil.charting.components.MarkerView
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.utils.MPPointF
+import kotlinx.android.synthetic.main.marker_main.view.*
 
 class LineGraphMarker(
     context: Context,
-    private var fixerResponse: FixerResponse,
+    private var fixerResponse: MutableList<FixerResponse>,
     layoutId: Int
 ) : MarkerView(context, layoutId) {
 
