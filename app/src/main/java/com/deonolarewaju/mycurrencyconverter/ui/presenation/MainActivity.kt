@@ -2,22 +2,26 @@ package com.deonolarewaju.mycurrencyconverter.ui.presenation
 
 import android.app.ProgressDialog
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
+import com.deonolarewaju.mycurrencyconverter.BuildConfig
 import com.deonolarewaju.mycurrencyconverter.R
 import com.deonolarewaju.mycurrencyconverter.data.model.CurrencyRatesModel
 import com.deonolarewaju.mycurrencyconverter.ui.adapters.SpinnerAdapter
 import com.deonolarewaju.mycurrencyconverter.ui.listeners.DataStateListener
 import com.deonolarewaju.mycurrencyconverter.ui.viewModel.MainActivityViewModel
 import com.deonolarewaju.mycurrencyconverter.util.Constants
+import com.deonolarewaju.mycurrencyconverter.util.Constants.timberLogger
 import com.deonolarewaju.mycurrencyconverter.util.Constants.toast
+import com.deonolarewaju.mycurrencyconverter.util.ReleaseTree
 import com.github.mikephil.charting.components.XAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), View.OnClickListener,
@@ -34,6 +38,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        timberLogger()
 
         progressDialog = ProgressDialog(this)
         mainActivityViewModel.liveCurrentRate.observe(this) { rates ->
@@ -178,7 +185,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     override fun onClick(v: View?) {
         if (v?.id == R.id.convert_btn) {
             if (convert_from_edit_text.text.toString().isEmpty()) {
-                toast("Input an amount in your desired currency")
+                toast("Input desired currency amount")
                 return
             }
             val result = mainActivityViewModel.convertAmount(

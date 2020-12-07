@@ -2,6 +2,7 @@ package com.deonolarewaju.mycurrencyconverter.di
 
 import android.content.Context
 import com.deonolarewaju.mycurrencyconverter.data.remote.retrofit.RetrofitApi
+import com.deonolarewaju.mycurrencyconverter.util.Constants
 import com.deonolarewaju.mycurrencyconverter.util.NetworkInterceptors
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
@@ -39,7 +40,7 @@ class RetrofitModule {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl("TODO")
+            .baseUrl(Constants.URL.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
