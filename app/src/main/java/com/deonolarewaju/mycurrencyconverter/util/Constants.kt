@@ -7,7 +7,7 @@ object Constants {
         const val VERSION_N0 = 1
     }
 
-    object CountriesList{
+    object CountriesList {
         const val AUD = "AUD"
         const val CAD = "CAD"
         const val MXN = "MXN"
@@ -16,6 +16,13 @@ object Constants {
         const val USD = "USD"
     }
 
+    object URL {
+        const val BASE_URL = "http://data.fixer.io/"
+    }
+
+    object Keys {
+        const val API_KEY = "de85f98c6c9b44bbd74f84350ddc468f"
+    }
 
 
 }
