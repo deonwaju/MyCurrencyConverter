@@ -1,6 +1,6 @@
-package com.deonolarewaju.mycurrencyconverter.util
+package com.deonolarewaju.mycurrencyconverter.data.remote
 
-import com.google.gson.JsonObject
+import com.deonolarewaju.mycurrencyconverter.util.ApiException
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response

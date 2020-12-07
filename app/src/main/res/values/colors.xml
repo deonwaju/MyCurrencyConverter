@@ -7,4 +7,37 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="bg_color">#f4f7a0</color>
+    <color name="cowry_blue">#001C55</color>
+
+    <color name="dark">#9A000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="header_font">#222222</color>
+    <color name="sub_header_font">#605E5E</color>
+    <color name="default_input_field">#B0A9A9</color>
+    <color name="placeholder_color">#C4C4C4</color>
+    <color name="background">#F7FAFC</color>
+    <color name="add_product_header">#e2e8f0</color>
+    <color name="text_color">#919094</color>
+    <color name="item_header">#404553</color>
+    <color name="item_sub_header">#A6A5A8</color>
+    <color name="input_hint_color">#D7D3D3</color>
+    <color name="settinngs_sub_header">#616366</color>
+    <color name="settings_header">#242323</color>
+    <color name="settings_item">#928F8F</color>
+    <color name="profile_header">#414A53</color>
+    <color name="profile_item">#121111</color>
+    <color name="profile_hint">#D7D3D3</color>
+    <color name="item_name">#404553</color>
+    <color name="item_desc">#A6A5A8</color>
+    <color name="section_header">#FAFAFF</color>
+    <color name="amount_background">#EAEFFB</color>
+    <color name="barcode_reticle_background">#99000000</color>
+    <color name="barcode_reticle_stroke">#40000000</color>
+    <color name="reticle_ripple">#9AFFFFFF</color>
+    <color name="barcode_field_value">#797979</color>
+    <color name="barcode_field_box_stroke">#757575</color>
+
+
 </resources>

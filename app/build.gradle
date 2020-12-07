@@ -37,7 +37,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "API_KEY", '"30ce77bd4d56997198e4186a3785f8ea"'
-            buildConfigField 'String', 'BASE_URL', '"https://dzq7zehl46m3h.cloudfront.net/"'
+            buildConfigField "String", "BASE_URL", '"http://data.fixer.io/"'
         }
 
         release {
@@ -45,7 +45,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "API_KEY", '"30ce77bd4d56997198e4186a3785f8ea"'
-            buildConfigField 'String', 'BASE_URL', '"https://dzq7zehl46m3h.cloudfront.net/"'
+            buildConfigField 'String', 'BASE_URL', '"http://data.fixer.io/"'
         }
     }
     compileOptions {
@@ -131,8 +131,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
-
-    testImplementation 'junit:junit:4.+'
+      testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

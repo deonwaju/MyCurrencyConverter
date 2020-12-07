@@ -11,7 +11,7 @@ import com.deonolarewaju.mycurrencyconverter.data.local.room.entities.FixerRespo
 interface MultipleCurrencyRateDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRates(currencyRates: CurrencyRates)
+    suspend fun insertRates(currencyRates: FixerResponse)
 
     @Query("SELECT * FROM fixer_response ORDER BY id DESC")
     suspend fun getRecordsFrom30Days(): List<FixerResponse>

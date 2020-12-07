@@ -1,4 +1,4 @@
-package com.deonolarewaju.mycurrencyconverter.ui
+package com.deonolarewaju.mycurrencyconverter.ui.listeners
 
 interface DataStateListener {
 
