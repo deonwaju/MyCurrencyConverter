@@ -15,23 +15,23 @@ import javax.inject.Singleton
 @Module
 class RoomDbModule {
 
-    @Provides
-    @Singleton
-    fun providesDatabaseInstance(@ApplicationContext context: Context) =
-        synchronized(context){
-            Room.databaseBuilder(
-                context,
-                AppDatabase::class.java,
-               Constants.DataBase.DATABASE_NAME
-            ).build()
-        }
-
-    @Provides
-    @Singleton
-    fun providesCurrencyRateDao(appDatabase: AppDatabase) = appDatabase.getCurrencyRateDao()
-
-
-    @Provides
-    @Singleton
-    fun providesMultipleCurrencyRateDao(appDatabase: AppDatabase) = appDatabase.getMultipleCurrencyRatesDao()
+//    @Provides
+//    @Singleton
+//    fun providesDatabaseInstance(@ApplicationContext context: Context) =
+//        synchronized(context){
+//            Room.databaseBuilder(
+//                context,
+//                AppDatabase::class.java,
+//               Constants.DataBase.DATABASE_NAME
+//            ).build()
+//        }
+//
+//    @Provides
+//    @Singleton
+//    fun providesCurrencyRateDao(appDatabase: AppDatabase) = appDatabase.getCurrencyRateDao()
+//
+//
+//    @Provides
+//    @Singleton
+//    fun providesMultipleCurrencyRateDao(appDatabase: AppDatabase) = appDatabase.getMultipleCurrencyRatesDao()
 }

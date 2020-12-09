@@ -3,13 +3,12 @@ package com.deonolarewaju.mycurrencyconverter.util
 import android.content.Context
 import android.widget.Toast
 import com.deonolarewaju.mycurrencyconverter.BuildConfig
-import timber.log.Timber
 
 object Constants {
 
     object DataBase {
         const val DATABASE_NAME = "currency_rates_db"
-        const val VERSION_N0 = 1
+        const val VERSION_N0 = 2
     }
 
     object CountriesList {
@@ -35,22 +34,22 @@ object Constants {
         centerToast.show()
     }
 
-    fun Context.timberLogger() {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(object : Timber.DebugTree() {
-                override fun createStackElementTag(element: StackTraceElement): String? {
-                    return String.format(
-                        "Class:%s: Line: %s, Method: %s",
-                        super.createStackElementTag(element),
-                        element.lineNumber,
-                        element.methodName
-                    )
-                }
-            })
-        } else {
-            Timber.plant(ReleaseTree())
-        }
-
-    }
+//    fun Context.timberLogger() {
+//        if (BuildConfig.DEBUG) {
+//            Timber.plant(object : Timber.DebugTree() {
+//                override fun createStackElementTag(element: StackTraceElement): String? {
+//                    return String.format(
+//                        "Class:%s: Line: %s, Method: %s",
+//                        super.createStackElementTag(element),
+//                        element.lineNumber,
+//                        element.methodName
+//                    )
+//                }
+//            })
+//        } else {
+//            Timber.plant(ReleaseTree())
+//        }
+//
+//    }
 
 }

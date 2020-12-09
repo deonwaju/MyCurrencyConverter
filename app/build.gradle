@@ -14,7 +14,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.mycurrencyconverter"
+        applicationId "com.deonolarewaju.mycurrencyconverter"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1

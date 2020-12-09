@@ -18,7 +18,6 @@ import com.deonolarewaju.mycurrencyconverter.ui.graph.LineGraphMarker
 import com.deonolarewaju.mycurrencyconverter.ui.listeners.DataStateListener
 import com.deonolarewaju.mycurrencyconverter.ui.viewModel.MainActivityViewModel
 import com.deonolarewaju.mycurrencyconverter.util.Constants
-import com.deonolarewaju.mycurrencyconverter.util.Constants.timberLogger
 import com.deonolarewaju.mycurrencyconverter.util.Constants.toast
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         setContentView(R.layout.activity_main)
 
 
-        timberLogger()
+//        timberLogger()
 
         progressDialog = ProgressDialog(this)
         mainActivityViewModel.viewModelInit(this)
