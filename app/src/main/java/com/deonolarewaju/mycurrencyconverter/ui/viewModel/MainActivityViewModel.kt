@@ -17,10 +17,10 @@ class MainActivityViewModel @ViewModelInject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 
+    val SINGLE_MONTH = 30
     private var mutableCurrencyRates: MutableLiveData<CurrencyRates> = MutableLiveData()
     private var mutableCurrentCurrencyRates: MutableLiveData<List<FixerResponse>> =
         MutableLiveData()
-    private lateinit var calendar: Calendar
 
     val liveCurrentRate: LiveData<CurrencyRates>
         get() = mutableCurrencyRates
@@ -36,7 +36,6 @@ class MainActivityViewModel @ViewModelInject constructor(
                     dataStateListener
                 )
             )
-            val SINGLE_MONTH = 30
             mutableCurrentCurrencyRates.postValue(
                 mainRepository.fetchSaveAndRetrieveRecordsForSomeDays(
                     SINGLE_MONTH,

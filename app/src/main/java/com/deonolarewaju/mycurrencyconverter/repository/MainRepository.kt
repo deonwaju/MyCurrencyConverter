@@ -24,7 +24,6 @@ class MainRepository @Inject constructor(
     private val multipleCurrencyRateDao: MultipleCurrencyRateDao
 ): ApiRequestHelper() {
 
-    private val TAG = "MainRepository"
     private lateinit var calendar: Calendar
 
     private suspend fun getCurrentRates(): FixerResponseModel {
@@ -42,7 +41,7 @@ class MainRepository @Inject constructor(
 
                 val currencyRates = getCurrentRates()
                 withContext(Dispatchers.Main) {
-                    dataStateListener.onCurrentState("Saving Data..")
+                    dataStateListener.displayMessage("Saving Data..")
                 }
 
                 currencyRateDao.insertRates(currencyRates.rates)
@@ -79,7 +78,7 @@ class MainRepository @Inject constructor(
         try {
             for (x in days downTo 1) {
                 withContext(Dispatchers.Main) {
-                    progressStateListener.onCurrentState("Saving record for day $x")
+                    progressStateListener.displayMessage("Saving record for day $x")
                 }
                 val date = getDateFromNDaysAgo(x)
 

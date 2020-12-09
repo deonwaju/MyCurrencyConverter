@@ -6,7 +6,7 @@ interface DataStateListener {
 
     fun onError(message: String)
 
-    fun onCurrentState(message: String)
+    fun displayMessage(message: String)
 
     fun onLoading()
 }

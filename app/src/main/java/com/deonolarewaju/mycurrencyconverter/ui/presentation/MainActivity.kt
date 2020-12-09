@@ -1,33 +1,36 @@
-package com.deonolarewaju.mycurrencyconverter.ui.presenation
+package com.deonolarewaju.mycurrencyconverter.ui.presentation
 
 import android.app.ProgressDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.observe
-import com.deonolarewaju.mycurrencyconverter.BuildConfig
 import com.deonolarewaju.mycurrencyconverter.R
+import com.deonolarewaju.mycurrencyconverter.data.local.room.entities.FixerResponse
 import com.deonolarewaju.mycurrencyconverter.data.model.CurrencyRatesModel
 import com.deonolarewaju.mycurrencyconverter.ui.adapters.SpinnerAdapter
+import com.deonolarewaju.mycurrencyconverter.ui.graph.LineGraphMarker
 import com.deonolarewaju.mycurrencyconverter.ui.listeners.DataStateListener
 import com.deonolarewaju.mycurrencyconverter.ui.viewModel.MainActivityViewModel
 import com.deonolarewaju.mycurrencyconverter.util.Constants
 import com.deonolarewaju.mycurrencyconverter.util.Constants.timberLogger
 import com.deonolarewaju.mycurrencyconverter.util.Constants.toast
-import com.deonolarewaju.mycurrencyconverter.util.ReleaseTree
 import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), View.OnClickListener,
     DataStateListener {
 
-    private val TAG = "MainActivity"
     private val mainActivityViewModel by viewModels<MainActivityViewModel>()
     private lateinit var countries: MutableList<CurrencyRatesModel>
     private var convertFromPosition = 0
@@ -44,6 +47,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
 
         progressDialog = ProgressDialog(this)
         mainActivityViewModel.viewModelInit(this)
+
+        setUpLineChart()
 
         mainActivityViewModel.liveCurrentRate.observe(this) { rates ->
             if (rates != null) {
@@ -100,9 +105,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         mainActivityViewModel.liveCurrencyDatesDay.observe(this) {
             onLoading()
             if (it != null) {
+                displayMessage("loading data on graph...")
+                initLineChart(it)
 
             }
+            onSuccess()
         }
+        convert_to_edit_text.isEnabled = false
+
+        convert_btn.setOnClickListener(this)
 
     }
 
@@ -209,7 +220,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         toast(message)
     }
 
-    override fun onCurrentState(message: String) {
+    override fun displayMessage(message: String) {
         progressDialog?.setMessage(message)
     }
 
@@ -218,4 +229,34 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         progressDialog?.setMessage("Loading exchange rate data...")
         progressDialog?.show()
     }
+
+    private fun initLineChart(conversionRates: List<FixerResponse>) {
+
+        conversionRates.let { rates ->
+
+            val lineDataSet =
+                LineDataSet(
+                    rates.indices.map { i ->
+                        Entry(i.toFloat(), rates[i].rates?.nGN?.toFloat()!!)
+                    },
+                    "Exchange Rates"
+                ).apply {
+                    valueTextColor = Color.WHITE
+                    color = ContextCompat.getColor(this@MainActivity, R.color.skyBlue)
+                    mode = LineDataSet.Mode.CUBIC_BEZIER
+                    setDrawFilled(true)
+                    fillAlpha = 255
+                }
+            currency_chart.data = LineData(lineDataSet).also { it.setDrawValues(false) }
+            currency_chart.marker =
+                LineGraphMarker(this, conversionRates.toMutableList(), R.layout.marker_main)
+
+            currency_chart.animation = AnimationUtils.loadAnimation(this, R.anim.fade_anim)
+            currency_chart.invalidate()
+
+
+        }
+    }
+
+
 }

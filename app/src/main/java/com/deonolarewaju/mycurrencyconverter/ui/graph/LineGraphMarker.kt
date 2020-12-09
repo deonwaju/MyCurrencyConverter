@@ -7,6 +7,8 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.utils.MPPointF
 import kotlinx.android.synthetic.main.marker_main.view.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class LineGraphMarker(
     context: Context,
@@ -14,10 +16,6 @@ class LineGraphMarker(
     layoutId: Int
 ) : MarkerView(context, layoutId) {
 
-
-    override fun getOffset(): MPPointF {
-        return MPPointF(02f, -height.toFloat())
-    }
 
     override fun refreshContent(e: Entry?, highlight: Highlight?) {
         super.refreshContent(e, highlight)
@@ -30,6 +28,16 @@ class LineGraphMarker(
         val currentRates = fixerResponse[currentPosition]
 
         marker_date.text = currentRates.date?.substring(5)
+        val decimalFormat = DecimalFormat("#.##")
+        decimalFormat.roundingMode = RoundingMode.FLOOR
+        val exchangeText =
+            "1 EUR -> ${decimalFormat.format(currentRates.rates?.nGN).toDouble()} NGN"
+        marker_exchange_rate.text = exchangeText
+
+    }
+
+    override fun getOffset(): MPPointF {
+        return MPPointF(02f, -height.toFloat())
     }
 
 }
