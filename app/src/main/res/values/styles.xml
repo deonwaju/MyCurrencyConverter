@@ -1,32 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="toolbarStyle">@style/converter_toolbar</item>
+        <item name="fontFamily">@font/montserrat</item>
+        <!--        <item name="editTextStyle">@style/converter_edit_text</item>-->
 
-    <style name="convert_button_style" parent="Widget.MaterialComponents.Button">
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:padding">16dp</item>
-        <item name="backgroundTint">@color/graph_green</item>
-        <item name="color">@color/white</item>
+        <item name="android:buttonStyle">@style/converter_button</item>
+        <item name="buttonStyle">@style/converter_button</item>
+        <item name="android:textColor">@color/colorBlueLight</item>
+        <!--        <item name="spinnerStyle">@style/converter_spinner</item>-->
+        <!--        <item name="android:spinnerStyle">@style/converter_spinner</item>-->
+
     </style>
 
-    <style name="convert_toolbar_styling" parent="Widget.MaterialComponents.Toolbar">
+
+    <style name="converter_toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="colorOnSurface">@color/colorAccent</item>
         <item name="elevation">0dp</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:background">@color/white</item>
-        <item name="colorOnSurface">@color/graph_green</item>
     </style>
 
-
-    <style name="convert_edit_text_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:background">@color/offWhite</item>
-        <item name="backgroundTint">@color/offWhite</item>
+    <style name="converter_edit_text" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@color/colorDirtyWhite</item>
+        <item name="backgroundTint">@color/colorDirtyWhite</item>
         <item name="android:padding">10dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:editable">true</item>
         <item name="android:inputType">numberDecimal</item>
     </style>
 
+    <style name="converter_spinner" parent="android:Widget.Spinner">
+        <item name="background">@drawable/outlined_spinner_bg</item>
+        <item name="android:background">@drawable/outlined_spinner_bg</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+
+    <style name="converter_button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="color">@color/colorWhite</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 
 </resources>

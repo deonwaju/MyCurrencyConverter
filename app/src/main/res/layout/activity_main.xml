@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.presentation.MainActivity">
-
+    tools:context=".ui.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             app:contentInsetStartWithNavigation="0dp"
             app:menu="@menu/menu" />
 
@@ -37,8 +35,8 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:orientation="vertical"
+                android:background="@color/colorWhite"
                 android:padding="20dp">
 
                 <TextView
@@ -46,72 +44,71 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:minLines="2"
-                    android:text="Currency \nCalculator"
-                    android:textColor="@color/lightBlue"
                     android:textFontWeight="1000"
+                    android:text="Currency \nCalculator"
+                    android:textColor="@color/colorBlueLight"
                     android:textSize="30sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@color/offWhite"
+                    android:background="@color/colorDirtyWhite"
                     android:gravity="center_vertical"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/convert_from_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/offWhite"
+                        android:id="@+id/convert_from_edit_text"
                         android:hint="Convert From"
+                        android:background="@color/colorDirtyWhite"
                         android:inputType="numberDecimal"
                         android:padding="10dp"
-                        android:textColorHint="@color/LightGrey"
+                        android:textColorHint="@color/colorLightGray"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/convert_from_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/convert_from_text"
+                        android:text="USD"
                         android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
-                        android:text="USD"
-                        android:textColor="@color/Grey" />
+                        android:textColor="@color/colorGray" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@color/offWhite"
+                    android:background="@color/colorDirtyWhite"
                     android:gravity="center_vertical"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/convert_to_edit_text"
-                        style="@style/convert_edit_text_style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/offWhite"
+                        android:id="@+id/convert_to_edit_text"
                         android:hint="Convert To"
+                        style="@style/converter_edit_text"
+                        android:background="@color/colorDirtyWhite"
                         android:inputType="numberDecimal"
-                        android:textColorHint="@color/LightGrey" />
+                        android:textColorHint="@color/colorLightGray" />
 
                     <TextView
-                        android:id="@+id/convert_to_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/convert_to_text"
+                        android:text="EUR"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
-                        android:text="EUR"
-                        android:textColor="@color/Grey" />
+                        android:textColor="@color/colorGray" />
 
                 </RelativeLayout>
 
@@ -123,71 +120,72 @@
                     android:orientation="horizontal">
 
                     <Spinner
-                        android:id="@+id/convert_from_spinner"
                         android:layout_width="0dp"
                         android:layout_height="70dp"
+                        android:id="@+id/convert_from_spinner"
                         android:layout_weight="2"
-                        android:background="@drawable/spinner_outlined" />
+                        android:background="@drawable/outlined_spinner_bg" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_switch" />
+                        android:src="@drawable/ic_swap" />
 
                     <Spinner
-                        android:id="@+id/convert_to_spinner"
                         android:layout_width="0dp"
                         android:layout_height="70dp"
+                        android:id="@+id/convert_to_spinner"
                         android:layout_weight="2"
-                        android:background="@drawable/spinner_outlined" />
+                        android:background="@drawable/outlined_spinner_bg" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
-                    android:id="@+id/convert_btn"
-                    style="@style/convert_button_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/convert_btn"
+                    style="@style/converter_button"
                     android:text="Convert" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"
                     android:minLines="2"
-                    android:text="@string/mid_market_exchange_rate"
-                    android:textColor="@color/lightBlue"
+                    android:gravity="center_vertical"
+                    android:text="@string/mid_market_exchange_rate_at_13_38_utc"
+                    android:textColor="@color/colorBlueLight"
                     android:textFontWeight="100" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/back_drop_bg"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/graph_drop_bg"
                 android:orientation="vertical"
                 android:padding="20dp">
 
                 <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/currency_chart"
                     android:layout_width="match_parent"
+                    android:id="@+id/currency_chart"
                     android:layout_height="400dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center_vertical"
                     android:minLines="2"
-                    android:text="@string/get_rate_alerts_by_mail"
-                    android:textColor="@color/white" />
+                    android:text="@string/get_rate_alerts_straight_to_your_email_inbox"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorWhite" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

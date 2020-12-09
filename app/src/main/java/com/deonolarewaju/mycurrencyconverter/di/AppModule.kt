@@ -2,11 +2,11 @@ package com.deonolarewaju.mycurrencyconverter.di
 
 import android.content.Context
 import androidx.room.Room
-import com.deonolarewaju.mycurrencyconverter.data.local.room.db.AppDatabase
-import com.deonolarewaju.mycurrencyconverter.util.Constants
-import com.deonolarewaju.mycurrencyconverter.util.NetworkInterceptors
-import com.facebook.stetho.okhttp3.BuildConfig
 import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.deonolarewaju.mycurrencyconverter.data.Api
+import com.deonolarewaju.mycurrencyconverter.data.AppDatabase
+import com.deonolarewaju.mycurrencyconverter.util.Constants
+import com.deonolarewaju.mycurrencyconverter.util.NetworkInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +21,43 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 class AppModule {
 
+    @Provides
+    @Singleton
+    fun getRetrofitInstance(@ApplicationContext context: Context): Retrofit {
+        val client = OkHttpClient.Builder()
+            .addNetworkInterceptor(StethoInterceptor())
+            .addInterceptor(NetworkInterceptor(context))
+            .build()
+
+        return Retrofit.Builder()
+            .baseUrl(Constants.Remote.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun getApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
+
+    @Provides
+    @Singleton
+    fun getDatabaseInstance(@ApplicationContext context: Context) =
+        synchronized(context) {
+            Room.databaseBuilder(
+                context,
+                AppDatabase::class.java,
+                Constants.Database.DATABASE_NAME
+            ).build()
+        }
+
+    @Provides
+    @Singleton
+    fun getConverterSingleDao(appDatabase: AppDatabase) = appDatabase.getSingleRateDao()
 
 
+    @Provides
+    @Singleton
+    fun getConverterMultipleDao(appDatabase: AppDatabase) = appDatabase.getMultipleRatesDao()
 
 }
