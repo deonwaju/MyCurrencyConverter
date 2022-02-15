@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         setContentView(R.layout.activity_main)
 
 
-//        timberLogger()
 
         progressDialog = ProgressDialog(this)
         mainActivityViewModel.viewModelInit(this)

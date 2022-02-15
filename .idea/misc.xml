@@ -6,9 +6,11 @@
         <entry key="app/src/main/res/drawable-v24/bg_rates_layout.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable-v24/form_button_enabled.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable-v24/graph_filled_area_bg.xml" value="0.1755" />
+        <entry key="app/src/main/res/drawable-v24/ic_sort.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable-v24/spinner_bg_layer_list.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable-v24/tab_indicator.xml" value="0.1755" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1490036231884058" />
+        <entry key="app/src/main/res/drawable/graph_drop_bg.xml" value="0.1755" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.26614583333333336" />
       </map>
