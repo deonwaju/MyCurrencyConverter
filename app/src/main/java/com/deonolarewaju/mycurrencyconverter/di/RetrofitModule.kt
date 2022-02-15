@@ -23,7 +23,7 @@ class RetrofitModule {
 //    ): Retrofit {
 //        val client = OkHttpClient.Builder()
 //            .addNetworkInterceptor(StethoInterceptor())
-//            .addInterceptor(NetworkInterceptors(context))
+//            .addInterceptor(NetworkInterceptor(context))
 //            .build()
 //
 //        return Retrofit.Builder()
